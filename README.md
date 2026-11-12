@@ -2,6 +2,8 @@
 
 A full-stack railway journey demo built with React, TypeScript, FastAPI, and SQLite. When `RAILRADAR_API_KEY` is configured, train search uses RailRadar timetable data with live-status enrichment. RailRadar is an independent third-party service, not an official Indian Railways or IRCTC integration. Booking inventory, fares, waitlists, and checkout remain simulated; the app does not issue real tickets or collect payments.
 
+**Live demo:** https://railwise-app-production.up.railway.app
+
 ## Demo features
 
 - Search trains by any station in the RailRadar station directory and travel date (or sample schedules when no API key is configured).
