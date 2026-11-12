@@ -14,6 +14,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field, field_validator
+from fastapi.staticfiles import StaticFiles
 
 
 BACKEND_ROOT = Path(__file__).resolve().parents[1]
@@ -439,3 +440,8 @@ async def cancel_booking(reference: str, request: CancelRequest) -> dict[str, An
     finally:
         connection.close()
     return {"cancelled_reference": reference.upper(), "promoted_reference": promoted_reference}
+
+
+FRONTEND_DIRECTORY = Path(os.getenv("FRONTEND_DIST", BACKEND_ROOT / "frontend-dist"))
+if FRONTEND_DIRECTORY.is_dir():
+    app.mount("/", StaticFiles(directory=FRONTEND_DIRECTORY, html=True), name="frontend")

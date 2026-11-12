@@ -35,6 +35,10 @@ npm run dev
 
 Open `http://127.0.0.1:5174`.
 
+## Deploy
+
+The root `Dockerfile` builds the React frontend and serves it with FastAPI from one service. Deploy the repository root on Railway and configure `RAILRADAR_API_KEY` in the service variables to enable live station and timetable data. Without that variable, the app uses sample schedules. Demo bookings are stored in SQLite and can reset when the container is recreated.
+
 ## RailRadar API key
 
 Add your key to `backend/.env`:
